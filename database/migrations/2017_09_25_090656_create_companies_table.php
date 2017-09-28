@@ -17,11 +17,11 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
 
             $table->string('name');
-            $table->string('website');
-            $table->string('street');
-			$table->integer('number');
-			$table->string('zipcode');
-			$table->string('place');
+            $table->string('website')->nullable();
+            $table->string('street')->nullable();
+			$table->string('number')->nullable();
+			$table->string('zipcode')->nullable();
+			$table->string('place')->nullable();
 
 			$table->timestamps();
         });

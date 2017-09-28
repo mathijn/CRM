@@ -3,22 +3,17 @@
 
 
     <div id="wrapper">
-
-
         <div id="page-wrapper">
-
             <div class="container-fluid">
-
-                <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Clients
-                            <small style="font-size:0.6em"><a href='add_client.php'"><i class="fa fa-plus" aria-hidden="true"></i> add client</a></small>
+                            <small style="font-size:0.6em"><a href=""><i class="fa fa-plus" aria-hidden="true"></i> add client</a></small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i><a href="dashboard.php"> Dashboard</a>
+                                <i class="fa fa-dashboard"></i><a href="{{route('dashboard')}}"> Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-users"></i> Clients
@@ -29,17 +24,34 @@
                 <!-- /.row -->
                 <table style="font-size: 0.9em" class="table table-hover table-custom" id="table-custom">
                     <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Company</th>
-                        <th>E-mail</th>
-                        <th>Phone</th>
-                        <th>Date</th>
-                        <th></th>
-                    </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Company</th>
+                            <th>E-mail</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+                            <th></th>
+                        </tr>
                     </thead>
+                    <tbody>
+                        @foreach($data['clients'] as $client)
+                            <tr>
+                                <th scope="row" class="col-sm-1">{{$client->id}}</th>
+                                <th class="col-sm-1">{{$client->first_name}}</th>
+                                <th class="col-sm-2">{{$client->last_name}}</th>
+                                <th class="col-sm-1">{{$client->company->name}}</th>
+                                <th class="col-sm-1">{{$client->email}}</th>
+                                <th class="col-sm-1">{{$client->phone}}</th>
+                                <th class="col-sm-2">{{$client->created_at}}</th>
+                                <th class="col-sm-1">
+                                    <a href=""><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href=""><i class="fa fa-times"></i></a>
+                                </th>
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
             <!-- /.container-fluid -->
