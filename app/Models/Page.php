@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Created by Reliese Model.
+ * Date: Wed, 27 Sep 2017 13:10:09 +0000.
+ */
+
+namespace App\Models;
+
+use Reliese\Database\Eloquent\Model as Eloquent;
+
+/**
+ * Class Page
+ * 
+ * @property int $id
+ * @property string $name
+ * @property string $icon
+ * @property string $url
+ * @property int $leve
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ *
+ * @package App\Models
+ */
+class Page extends Eloquent
+{
+	protected $casts = [
+		'level' => 'int'
+	];
+
+	protected $fillable = [
+		'name',
+		'icon',
+		'url',
+		'level'
+	];
+}
