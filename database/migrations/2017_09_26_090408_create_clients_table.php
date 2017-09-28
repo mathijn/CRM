@@ -22,7 +22,7 @@ class CreateClientsTable extends Migration
 			$table->string('phone')->nullable();
 
 			$table->unsignedInteger('event_id')->nullable();
-			$table->unsignedInteger('company_id')->nullable();
+			$table->string('company')->nullable();
 			$table->unsignedInteger('category_id')->nullable();
 
             $table->timestamps();

@@ -40,9 +40,4 @@ class Company extends Eloquent
 		'zipcode',
 		'place'
 	];
-
-	public function clients()
-	{
-		return $this->hasMany(\App\Models\Client::class);
-	}
 }

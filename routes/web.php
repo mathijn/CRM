@@ -25,3 +25,5 @@ Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 Route::get('/clients', 'AdminController@clients')->name('clients');
 Route::get('/emails', 'AdminController@emails')->name('emails');
 Route::get('/actions', 'AdminController@actions')->name('actions');
+
+Route::resource('clients', 'ClientController');

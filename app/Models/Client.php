@@ -52,11 +52,6 @@ class Client extends Eloquent
 		return $this->belongsTo(\App\Models\Category::class);
 	}
 
-	public function company()
-	{
-		return $this->belongsTo(\App\Models\Company::class);
-	}
-
 	public function event()
 	{
 		return $this->belongsTo(\App\Models\Event::class);

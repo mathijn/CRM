@@ -12,7 +12,14 @@
 
     </nav>
 
-    @yield('content')
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- /.container-fluid -->
+                @yield('content')
+            </div>
+        <!-- /#page-wrapper -->
+        </div>
 
 
     <footer class="row">

@@ -29,16 +29,6 @@ class AdminController extends Controller
 		]);
 	}
 
-	/**
-	 * @return $this
-	 */
-	public function clients()
-	{
-		return view('pages.admin.clients')->with('data', [
-			'menuItems' => $this->getMenuItems(),
-			'clients' 	=> $this->getAllClients()
-		]);
-	}
 
 	/**
 	 * @return $this

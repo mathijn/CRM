@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Action;
+use App\Models\Category;
 use App\Models\Client;
 use App\Models\Email;
 use App\Models\Page;
@@ -44,8 +45,19 @@ class Controller extends BaseController
 		return Email::all();
 	}
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Collection|static[]
+	 */
 	public function getAllActions()
 	{
 		return Action::all();
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Collection|static[]
+	 */
+	public function getAllCategories()
+	{
+		return Category::all();
 	}
 }
