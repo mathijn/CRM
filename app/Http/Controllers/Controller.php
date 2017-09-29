@@ -37,6 +37,11 @@ class Controller extends BaseController
 		return Client::all();
 	}
 
+	public function getClient($id)
+	{
+		return Client::where(['id' => $id])->first();
+	}
+
 	/**
 	 * @return \Illuminate\Database\Eloquent\Collection|static[]
 	 */

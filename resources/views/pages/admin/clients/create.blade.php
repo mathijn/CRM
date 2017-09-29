@@ -13,7 +13,7 @@
                 <i class="fa fa-users"></i><a href="{{route('clients.index')}}"> Clients </a>
             </li>
             <li class="active">
-                <i class="fa fa-file"></i> Add client
+                <i class="fa fa-user"></i> Add client
             </li>
         </ol>
     </div>
@@ -64,7 +64,7 @@
             </fieldset>
             <div class="col-sm-10">
                 @foreach($data['client_categories'] as $category)
-                    {{ Form::radio('category', $category->id, Input::old('category'), ['class' => 'form-check-input']) }} {{$category->name}} <br>
+                    {{ Form::radio('category_id', $category->id, Input::old('category_id'), ['class' => 'form-check-input']) }} {{$category->name}} <br>
                 @endforeach
             </div>
 
