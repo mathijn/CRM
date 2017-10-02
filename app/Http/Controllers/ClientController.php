@@ -34,7 +34,7 @@ class ClientController extends Controller
 	{
 		return view('pages.admin.clients.index')
 			->with('data', [
-				'menuItems' => $this->getMenuItems(),
+				'actions'	=> $this->getAllActions(),
 				'clients' 	=> $this->getAllClients()
 			]);
 	}
@@ -48,7 +48,7 @@ class ClientController extends Controller
 	{
 		return view('pages.admin.clients.create')
 			->with('data', [
-				'menuItems' 			=> $this->getMenuItems(),
+				'actions'				=> $this->getAllActions(),
 				'client_categories'		=> $this->getAllCategories()
 			]);
 	}
@@ -83,15 +83,12 @@ class ClientController extends Controller
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
-	 * @return Response
+	 * @return ResponseN
 	 */
 	public function show($id)
 	{
 		return view('pages.admin.clients.show')
-			->with('data', [
-				'menuItems' => $this->getMenuItems(),
-				'client'	=> $this->getClient($id)
-			]);
+			->with('client', $this->getClient($id));
 	}
 
 	/**
@@ -105,9 +102,9 @@ class ClientController extends Controller
 		$client = Client::find($id);
 		return view('pages.admin.clients.edit')
 			->with('data', [
-				'menuItems' => $this->getMenuItems(),
+				'actions'				=> $this->getAllActions(),
 				'client_categories'		=> $this->getAllCategories(),
-				'client'	=> $client
+				'client'				=> $client
 			]);
 	}
 

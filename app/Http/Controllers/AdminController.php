@@ -22,7 +22,6 @@ class AdminController extends Controller
 	public function index()
 	{
 		return view('pages.admin.dashboard')->with('data', [
-			'menuItems' => $this->getMenuItems(),
 			'clients'	=> $this->getAllClients(),
 			'actions'	=> $this->getAllActions(),
 			'emails'	=> $this->getAllEmails()
@@ -36,7 +35,7 @@ class AdminController extends Controller
 	public function emails()
 	{
 		return view('pages.admin.emails')->with('data', [
-			'menuItems' => $this->getMenuItems(),
+			'actions'			=> $this->getAllActions()
 		]);
 	}
 
@@ -46,7 +45,7 @@ class AdminController extends Controller
 	public function actions()
 	{
 		return view('pages.admin.actions')->with('data', [
-			'menuItems' => $this->getMenuItems(),
+			'actions'			=> $this->getAllActions()
 		]);
 	}
 }

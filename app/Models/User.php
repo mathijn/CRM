@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Tue, 26 Sep 2017 11:24:09 +0000.
+ * Date: Fri, 29 Sep 2017 09:49:00 +0000.
  */
 
 namespace App\Models;
@@ -13,7 +13,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Class User
  * 
  * @property int $id
- * @property string $name
+ * @property string $username
  * @property string $email
  * @property string $password
  * @property string $remember_token
@@ -30,11 +30,9 @@ class User extends Eloquent
 	];
 
 	protected $fillable = [
-		'name',
+		'username',
 		'email',
 		'password',
 		'remember_token'
 	];
-
-
 }

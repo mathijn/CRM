@@ -7,13 +7,19 @@
 <title>Dashboard</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('admin/css/bootstrap.css') }}" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="{{ asset('admin/css/sb-admin.css') }}" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<link href="{{ asset('admin/css/plugins/morris.css') }}" rel="stylesheet">
+
 <!-- Custom Fonts -->
-<link href="{{ asset('admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('admin/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
 
 
 

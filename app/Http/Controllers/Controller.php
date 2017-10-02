@@ -32,11 +32,13 @@ class Controller extends BaseController
 	/**
 	 * @return \Illuminate\Database\Eloquent\Collection|static[]
 	 */
+	//hl get ALL CLIENTS
 	public function getAllClients()
 	{
 		return Client::all();
 	}
 
+	//hl get CLIENT
 	public function getClient($id)
 	{
 		return Client::where(['id' => $id])->first();
@@ -45,6 +47,7 @@ class Controller extends BaseController
 	/**
 	 * @return \Illuminate\Database\Eloquent\Collection|static[]
 	 */
+	//hl get ALL EMAILS
 	public function getAllEmails()
 	{
 		return Email::all();
@@ -53,14 +56,22 @@ class Controller extends BaseController
 	/**
 	 * @return \Illuminate\Database\Eloquent\Collection|static[]
 	 */
+	//hl get ALL ACTIONS
 	public function getAllActions()
 	{
 		return Action::all();
 	}
 
+	//hl get ACTION
+	public function getAction($id)
+	{
+		return Action::find($id);
+	}
+
 	/**
 	 * @return \Illuminate\Database\Eloquent\Collection|static[]
 	 */
+	//hl get ALL CATEGORIES
 	public function getAllCategories()
 	{
 		return Category::all();

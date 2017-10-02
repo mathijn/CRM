@@ -8,23 +8,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
+use App\Models\Action;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Validator;
 
 /**
- * Class ClientsController
+ * Class ActionsController
  * @package App\Http\Controllers
  */
-class ClientController extends Controller
+class ActionController extends Controller
 {
 
 	protected $rules = [
-		'first_name'	=> 'required',
-		'last_name'		=> 'required',
-		'email'			=> 'email',
+		'subject'	=> 'required|min:3',
+		'client_id'	=> 'required'
 	];
 
 	/**
@@ -32,11 +31,8 @@ class ClientController extends Controller
 	 */
 	public function index()
 	{
-		return view('pages.admin.clients.index')
-			->with('data', [
-				'menuItems' => $this->getMenuItems(),
-				'clients' 	=> $this->getAllClients()
-			]);
+		return view('pages.admin.actions.index')
+			->with('actions', $this->getAllActions());
 	}
 
 	/**
@@ -46,11 +42,7 @@ class ClientController extends Controller
 	 */
 	public function create()
 	{
-		return view('pages.admin.clients.create')
-			->with('data', [
-				'menuItems' 			=> $this->getMenuItems(),
-				'client_categories'		=> $this->getAllCategories()
-			]);
+		return view('pages.admin.actions.create');
 	}
 
 	/**
@@ -64,17 +56,17 @@ class ClientController extends Controller
 
 		if($validator->fails())
 		{
-			return Redirect::to('clients/create')
+			return Redirect::to('actions/create')
 				->withErrors($validator)
 				->withInput(Input::all());
 		}
 		else
 		{
-			$client = new Client();
+			$action = new Action();
 
-			$this->save(Input::all(), $client);
+			$this->save(Input::all(), $action);
 
-			return Redirect::to('clients');
+			return Redirect::to('actions');
 		}
 	}
 
@@ -87,10 +79,9 @@ class ClientController extends Controller
 	 */
 	public function show($id)
 	{
-		return view('pages.admin.clients.show')
+		return view('pages.admin.actions.show')
 			->with('data', [
-				'menuItems' => $this->getMenuItems(),
-				'client'	=> $this->getClient($id)
+				'action'	=> $this->getAction($id)
 			]);
 	}
 
@@ -102,13 +93,9 @@ class ClientController extends Controller
 	 */
 	public function edit($id)
 	{
-		$client = Client::find($id);
-		return view('pages.admin.clients.edit')
-			->with('data', [
-				'menuItems' => $this->getMenuItems(),
-				'client_categories'		=> $this->getAllCategories(),
-				'client'	=> $client
-			]);
+		$action = Action::find($id);
+		return view('pages.admin.actions.edit')
+			->with('action', $action);
 	}
 
 	/**
@@ -123,17 +110,17 @@ class ClientController extends Controller
 
 		if($validator->fails())
 		{
-			return Redirect::to('clients/' . $id . '/edit')
+			return Redirect::to('actions/' . $id . '/edit')
 				->withErros($validator)
 				->withInput(Input::all());
 		}
 		else
 		{
-			$clientToEdit = Client::find($id);
+			$actionToEdit = Action::find($id);
 
-			$this->save(Input::all(), $clientToEdit);
+			$this->save(Input::all(), $actionToEdit);
 
-			return Redirect::to('clients');
+			return Redirect::to('actions');
 		}
 	}
 
@@ -146,18 +133,17 @@ class ClientController extends Controller
 	public function destroy($id)
 	{
 		//
+		dd($id);
+		return $id;
 	}
 
-	private function save($input, $client)
+	private function save($input, $action)
 	{
-		$client->first_name 	= $input['first_name'];
-		$client->last_name 		= $input['last_name'];
-		$client->email 			= $input['email'];
-		$client->phone 			= $input['phone'];
-		$client->category_id 	= $input['category_id'];
-		$client->company		= $input['company'];
+		$action->subject	= $input['subject'];
+		$action->body		= $input['body'];
+		$action->client_id	= $input['client_id'];
 
-		$client->save();
+		$action->save();
 
 		Session::flash('message', 'Successfully added a new client.');
 	}

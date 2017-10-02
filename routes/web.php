@@ -27,3 +27,4 @@ Route::get('/emails', 'AdminController@emails')->name('emails');
 Route::get('/actions', 'AdminController@actions')->name('actions');
 
 Route::resource('clients', 'ClientController');
+Route::resource('actions', 'ActionController');

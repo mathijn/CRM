@@ -3,7 +3,7 @@
 
 
     <div class="row">
-        @foreach($data['menuItems'] as $menuItem)
+        @foreach(App\Models\Page::all() as $menuItem)
         @if($menuItem->url == 'emails' || $menuItem->url == 'clients' || $menuItem->url == 'actions'  )
             <div class="col-lg-3 col-md-6">
                 <div class="panel panel-{{$menuItem->color}}">
@@ -17,9 +17,9 @@
                                     @if($menuItem->url == 'clients')
                                         {{$data['clients']->count()}}
                                     @elseif($menuItem->url == 'emails')
-                                        {{ '123' }}
+                                        {{ $data['emails']->count() }}
                                     @elseif($menuItem->url == 'actions')
-                                        {{ '123' }}
+                                        {{ $data['actions']->count() }}
                                     @endif
                                 </div>
                                 <div>{{ $menuItem->name }}</div>

@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Tue, 26 Sep 2017 11:24:09 +0000.
+ * Date: Fri, 29 Sep 2017 09:49:00 +0000.
  */
 
 namespace App\Models;
@@ -13,8 +13,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Class Event
  * 
  * @property int $id
- * @property string $name
- * @property string $event
+ * @property string $subject
+ * @property string $body
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * 
@@ -25,8 +25,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 class Event extends Eloquent
 {
 	protected $fillable = [
-		'name',
-		'event'
+		'subject',
+		'body'
 	];
 
 	public function clients()

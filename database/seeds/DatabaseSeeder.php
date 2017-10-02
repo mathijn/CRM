@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
 		DB::table('users')->insert([
 			'username' => 'mathijn',
 			'email' => 'mathijn@gmail.com',
@@ -40,21 +39,21 @@ class DatabaseSeeder extends Seeder
 		]);
 		DB::table('pages')->insert([
 			'name'		=> 'Emails',
-			'icon' => 'fa fa-envelope',
+			'icon' 		=> 'fa fa-envelope',
 			'url'		=> 'emails',
-			'level'		=> '10',
-			'color'		=> 'yellow',
+			'level'		=> '4',
+			'color'		=> 'red',
 			'created_at'=> \Carbon\Carbon::now(),
 			'updated_at'=> \Carbon\Carbon::now(),
 		]);
 		DB::table('pages')->insert([
 			'name'		=> 'Actions',
-			'icon' => 'fa fa-tasks',
+			'icon' 		=> 'fa fa-tasks',
 			'url'		=> 'actions',
 			'level'		=> '10',
 			'color'		=> 'red',
 			'created_at'=> \Carbon\Carbon::now(),
-			'updated_at'=> \Carbon\Carbon::now(),s
+			'updated_at'=> \Carbon\Carbon::now(),
 		]);
 
 		$company = DB::table('companies')->insertGetId([
@@ -81,17 +80,29 @@ class DatabaseSeeder extends Seeder
 			'updated_at'=> \Carbon\Carbon::now()
 		]);
 
+		$category2 = DB::table('categories')->insertGetId([
+			'name'		=> 'lead',
+			'created_at'=> \Carbon\Carbon::now(),
+			'updated_at'=> \Carbon\Carbon::now()
+		]);
+
 		$client = DB::table('clients')->insertGetId([
 			'first_name'	=> 'Mathijn',
 			'last_name'		=> 'van Dijk',
 			'email'			=> 'mvandijk@firstdayit.nl',
 			'phone'			=> '0657637525',
-			'event_id'		=> $event,
-			'company_id'	=> $company,
+			'company'		=> 'FirstDayIt',
 			'category_id'	=> $category,
 			'created_at'	=> \Carbon\Carbon::now(),
 			'updated_at'	=> \Carbon\Carbon::now(),
 		]);
 
+		$action = DB::table('actions')->insertGetId([
+			'subject'		=> 'Take Action now!',
+			'body'			=> 'Relax....',
+			'client_id'		=> $client,
+			'created_at'	=> \Carbon\Carbon::now(),
+			'updated_at'	=> \Carbon\Carbon::now()
+		]);
     }
 }

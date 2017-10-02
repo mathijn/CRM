@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Wed, 27 Sep 2017 13:10:09 +0000.
+ * Date: Fri, 29 Sep 2017 09:49:00 +0000.
  */
 
 namespace App\Models;
@@ -16,7 +16,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $name
  * @property string $icon
  * @property string $url
- * @property int $leve
+ * @property int $level
+ * @property string $color
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  *
@@ -32,6 +33,7 @@ class Page extends Eloquent
 		'name',
 		'icon',
 		'url',
-		'level'
+		'level',
+		'color'
 	];
 }
