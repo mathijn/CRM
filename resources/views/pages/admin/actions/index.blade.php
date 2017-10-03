@@ -27,25 +27,28 @@
             <th>What is going on?</th>
             <th>Client</th>
             <th>Deadline</th>
+            <th>Finished</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         @foreach($actions as $action)
             <tr>
-                <th scope="row" class="col-sm-1">{{ isset($action->id) ? $action->id : '' }}</th>
-                <th class="col-sm-2">{{ isset($action->subject) ? $action->subject : '' }}</th>
-                <th class="col-sm-4">{{ isset($action->body) ? $action->body : '' }}</th>
+                <th scope="row" class="col-sm-1">{{ $action->id }}</th>
+                <th class="col-sm-2">{{ $action->subject }}</th>
+                <th class="col-sm-3">{{ isset($action->body) ? $action->body : '' }}</th>
                 <th class="col-sm-2"><a href="{{ route('clients.show', ['id' => $action->client->id]) }}" >{{ $action->client->full_name }}</a></th>
-                <th class="col-sm-2">{{ isset($action->created_at) ? $action->created_at->format('d-m-Y') : '' }}</th>
-                <th class="col-sm-1">
+                <th class="col-sm-2">{{ $action->created_at->format('d-m-Y') }}</th>
+                <th class="col-sm-1">{{ $action->finished === 0 ? 'No' : 'Yes' }}</th>
+                <th class="col-sm-2">
                     <a href="{{ route('actions.edit', ['id' => $action->id]) }}"><i id="edit-btn" class="fa fa-pencil-square-o"></i></a>
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['actions.destroy', $action->id], 'id' => 'form-delete-companies-' . $action->id]) !!}
-                        <a href="" class="data-delete" data-form="actions-{{ $action->id }}"><i id="edit-btn" class="fa fa-times"></i></a>
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['actions.destroy', $action->id], 'id' => 'form-delete-'.$action->id]) !!}
+                        <a href="#" role="submit" class="data-delete" data-form="{{ $action->id }}"><i id="edit-btn" class="fa fa-times"></i></a>
                     {!! Form::close() !!}
                 </th>
             </tr>
         @endforeach
         </tbody>
     </table>
+
 @stop

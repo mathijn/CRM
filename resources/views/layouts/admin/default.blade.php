@@ -16,13 +16,16 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- /.container-fluid -->
-                @yield('content')
+                <div class="col-lg-8">
+                    @yield('content')
+                </div>
             </div>
         <!-- /#page-wrapper -->
         </div>
 
 
-    <footer class="row">
+    <footer class="row wrapper">
+        @include('includes.admin.footer')
     </footer>
 
 </body>

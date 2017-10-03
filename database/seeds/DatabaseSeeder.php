@@ -97,10 +97,37 @@ class DatabaseSeeder extends Seeder
 			'updated_at'	=> \Carbon\Carbon::now(),
 		]);
 
+		$client2 = DB::table('clients')->insertGetId([
+			'first_name'	=> 'Kees',
+			'last_name'		=> 'Ya Boy!',
+			'email'			=> 'kees@kees.nl',
+			'phone'			=> '0657637525',
+			'company'		=> 'FirstDayIt',
+			'category_id'	=> $category,
+			'created_at'	=> \Carbon\Carbon::now(),
+			'updated_at'	=> \Carbon\Carbon::now(),
+		]);
+
 		$action = DB::table('actions')->insertGetId([
 			'subject'		=> 'Take Action now!',
 			'body'			=> 'Relax....',
 			'client_id'		=> $client,
+			'created_at'	=> \Carbon\Carbon::now(),
+			'updated_at'	=> \Carbon\Carbon::now()
+		]);
+
+		$action2 = DB::table('actions')->insertGetId([
+			'subject'		=> 'Take Action now!',
+			'body'			=> 'Relax....',
+			'client_id'		=> $client,
+			'created_at'	=> \Carbon\Carbon::now(),
+			'updated_at'	=> \Carbon\Carbon::now()
+		]);
+
+		$action3 = DB::table('actions')->insertGetId([
+			'subject'		=> 'Action 2',
+			'body'			=> 'Relax....',
+			'client_id'		=> $client2,
 			'created_at'	=> \Carbon\Carbon::now(),
 			'updated_at'	=> \Carbon\Carbon::now()
 		]);

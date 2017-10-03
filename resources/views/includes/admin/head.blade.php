@@ -19,7 +19,7 @@
 <link href="{{ asset('admin/css/plugins/morris.css') }}" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="{{ asset('admin/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
+<script src="https://use.fontawesome.com/6c0061b9d1.js"></script>
 
 
 

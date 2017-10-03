@@ -28,3 +28,5 @@ Route::get('/actions', 'AdminController@actions')->name('actions');
 
 Route::resource('clients', 'ClientController');
 Route::resource('actions', 'ActionController');
+Route::resource('employees', 'EmployeeController');
+Route::resource('cv', 'CvController');
