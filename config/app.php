@@ -181,6 +181,8 @@ return [
 				Reliese\Coders\CodersServiceProvider::class,
 				Collective\Html\HtmlServiceProvider::class,
 				Barryvdh\Debugbar\ServiceProvider::class,
+				Barryvdh\DomPDF\ServiceProvider::class,
+
 
 	],
 
@@ -236,6 +238,7 @@ return [
 				'Html' => Collective\Html\HtmlFacade::class,
 				'Debugbar' => Barryvdh\Debugbar\Facade::class,
 				'Input' => Illuminate\Support\Facades\Input::class,
+				'PDF' => Barryvdh\DomPDF\Facade::class,
 
 
 

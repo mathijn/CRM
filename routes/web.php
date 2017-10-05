@@ -19,14 +19,10 @@ Route::POST('login', 'LoginController@login')->name('login');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/dashboard', 'AdminController@index')->name('dashboard');
-Route::get('/clients', 'AdminController@clients')->name('clients');
-Route::get('/emails', 'AdminController@emails')->name('emails');
-Route::get('/actions', 'AdminController@actions')->name('actions');
 
 Route::resource('clients', 'ClientController');
 Route::resource('actions', 'ActionController');
 Route::resource('employees', 'EmployeeController');
-Route::resource('cv', 'CvController');
+
+Route::get('pdf', 'PdfController@generatePdf')->name('pdf');

@@ -3,17 +3,17 @@
 
     <div class="col-lg-12">
         <h1 class="page-header">
-            Adding action
+            Adding employee
         </h1>
         <ol class="breadcrumb">
             <li>
                 <i class="fa fa-dashboard"></i><a href="{{route('dashboard')}}"> Dashboard</a>
             </li>
             <li>
-                <i class="fa fa-users"></i><a href="{{route('actions.index')}}"> Actions </a>
+                <i class="fa fa-users"></i><a href="{{route('employees.index')}}"> Employees </a>
             </li>
             <li class="active">
-                <i class="fa fa-user"></i> Add action
+                <i class="fa fa-user"></i> Add employee
             </li>
         </ol>
     </div>
@@ -22,26 +22,54 @@
 
         {{ Html::ul($errors->all()) }}
 
-        {{ Form::open(['url' => 'actions']) }}
+        {{ Form::open(['url' => 'employees']) }}
 
             <div class="form-group row">
-                {{ Form::label('subject', 'Subject:', ['class' => 'col-sm-2 col-form-label']) }}
+                {{ Form::label('first_name', 'First name:', ['class' => 'col-sm-2 col-form-label']) }}
                 <div class="col-sm-10">
-                    {{ Form::text('subject', Input::old('subject'), ['class' => 'form-control']) }}
+                    {{ Form::text('first_name', Input::old('first_name'), ['class' => 'form-control']) }}
                 </div>
             </div>
 
             <div class="form-group row">
-                {{ Form::label('body', 'What to do?', ['class' => 'col-sm-2 col-form-label']) }}
+                {{ Form::label('last_name', 'Last name:', ['class' => 'col-sm-2 col-form-label']) }}
                 <div class="col-sm-10">
-                    {{ Form::text('body', Input::old('body'), ['class' => 'form-control']) }}
+                    {{ Form::text('last_name', Input::old('last_name'), ['class' => 'form-control']) }}
                 </div>
             </div>
 
             <div class="form-group row">
-                {{ Form::label('client_id', 'Which client?', ['class' => 'col-sm-2 col-form-label']) }}
+                {{ Form::label('place', 'Place:', ['class' => 'col-sm-2 col-form-label']) }}
                 <div class="col-sm-10">
-                    {{ Form::select('client_id', App\Models\Client::get()->pluck('full_name', 'id') , null, ['class' => 'form-control', 'placeholder' => 'Choose a client...']) }}
+                    {{ Form::text('place', Input::old('place'), ['class' => 'form-control']) }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                {{ Form::label('birth_date', 'Birth date:', ['class' => 'col-sm-2 col-form-label']) }}
+                <div class="col-sm-10">
+                    {{ Form::text('birth_date', Input::old('birth_date'), ['class' => 'form-control']) }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                {{ Form::label('job_title', 'Job title:', ['class' => 'col-sm-2 col-form-label']) }}
+                <div class="col-sm-10">
+                    {{ Form::text('job_title', Input::old('job_title'), ['class' => 'form-control']) }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                {{ Form::label('description', 'Description:', ['class' => 'col-sm-2 col-form-label']) }}
+                <div class="col-sm-10">
+                    {{ Form::text('description', Input::old('description'), ['class' => 'form-control']) }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                {{ Form::label('driver_license', 'Driver license', ['class' => 'col-sm-2 col-form-label']) }}
+                <div class="col-sm-10">
+                    {{ Form::select('driver_license', ['B' => 'B','None' => 'None'] , 'B', ['class' => 'form-control']) }}
                 </div>
             </div>
 

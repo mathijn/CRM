@@ -1,0 +1,82 @@
+@page {
+    margin: 50px 20px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8em;
+}
+
+.page{
+    padding: 70px 50px;
+}
+
+header {
+    position: fixed;
+    top: -30px;
+    width:100%;
+    text-align: center;
+}
+
+img {
+    width:225px;
+}
+
+footer {
+    position: fixed;
+    bottom: -30px;
+    left: 0px;
+    right: 0px;
+}
+
+.pagenum:before {
+    content: counter(page);
+}
+
+p { page-break-after: always; }
+
+p:last-child { page-break-after: never; }
+
+.page-break-after {
+    page-break-after: always;
+}
+.page-break-before {
+    page-break-before: always;
+}
+
+.first_page {
+    position: relative;
+    top:30%;
+}
+
+.page h1 {
+    font-size: 2.5em;
+}
+
+.page p {
+    padding-top: 80px;
+}
+
+.page, .small p {
+    font-size: 1em;
+}
+
+.page .small {
+    font-size: 0.8em;
+}
+
+
+h2.title{
+    border-bottom: 1px solid;
+    text-transform: uppercase;
+}
+
+#table-column-name table, th {
+    width:175px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+table, td {
+    width: 100%;
+}

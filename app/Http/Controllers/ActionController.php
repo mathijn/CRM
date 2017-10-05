@@ -132,9 +132,11 @@ class ActionController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
-		dd($id);
-		return $id;
+		$action = Action::find($id);
+		$action->delete();
+
+		Session::flash('message', 'Successfully deleted the action!');
+		return Redirect::to('actions');
 	}
 
 	private function save($input, $action)

@@ -143,7 +143,11 @@ class ClientController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
+		$action = Client::find($id);
+		$action->delete();
+
+		Session::flash('message', 'Successfully deleted the client!');
+		return Redirect::to('clients');
 	}
 
 	private function save($input, $client)

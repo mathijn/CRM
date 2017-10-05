@@ -10,7 +10,7 @@
                 <i class="fa fa-dashboard"></i><a href="{{route('dashboard')}}"> Dashboard</a>
             </li>
             <li>
-                <i class="fa fa-users"></i><a href="{{route('actions.index')}}"> Clients </a>
+                <i class="fa fa-users"></i><a href="{{route('actions.index')}}"> Actions </a>
             </li>
             <li class="active">
                 <i class="fa fa-user"></i> Edit action

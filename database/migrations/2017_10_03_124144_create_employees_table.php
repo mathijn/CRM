@@ -16,12 +16,13 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('name');
-            $table->string('placee');
-            $table->date('birthdate');
-            $table->string('driver_licence');
-            $table->string('job_title');
-            $table->text('description');
+            $table->string('first_name');
+            $table->string('last_name')->nullable();
+            $table->string('place')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->enum('driver_license', ['B', 'None']);
+            $table->string('job_title')->nullable();
+            $table->text('description')->nullable();
 
             $table->timestamps();
         });

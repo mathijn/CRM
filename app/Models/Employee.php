@@ -14,9 +14,9 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property int $id
  * @property string $name
- * @property string $placee
- * @property \Carbon\Carbon $birthdate
- * @property string $driver_licence
+ * @property string $place
+ * @property \Carbon\Carbon $birth_date
+ * @property string $driver_license
  * @property string $job_title
  * @property string $description
  * @property \Carbon\Carbon $created_at
@@ -27,15 +27,21 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 class Employee extends Eloquent
 {
 	protected $dates = [
-		'birthdate'
+		'birth_date'
 	];
 
 	protected $fillable = [
-		'name',
-		'placee',
-		'birthdate',
+		'first_name',
+		'last_name',
+		'place',
+		'birth_date',
 		'driver_licence',
 		'job_title',
 		'description'
 	];
+
+	public function getFullNameAttribute()
+	{
+		return $this->first_name . ' ' . $this->last_name;
+	}
 }
