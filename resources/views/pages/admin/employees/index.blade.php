@@ -28,20 +28,18 @@
             <th>Birth day</th>
             <th>Drivers license</th>
             <th>Job Title</th>
-            <th>Profile description</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         @foreach(\App\Models\Employee::all() as $employee)
             <tr>
-                <th scope="row" class="col-sm-1">{{ $employee->id }}</th>
-                <th class="col-sm-2">{{ $employee->full_name }}</th>
+                <th scope="row" class="col-sm-1"><a href="{{ route('employees.show', ['id' => $employee->id]) }}">{{ $employee->id }}</a></th>
+                <th class="col-sm-2"><a href="{{ route('employees.show', ['id' => $employee->id]) }}">{{ $employee->full_name }}</a></th>
                 <th class="col-sm-1">{{ $employee->place }}</th>
                 <th class="col-sm-1">{{ $employee->birth_date->format('d-m-Y') }}</th>
                 <th class="col-sm-1">{{ $employee->driver_license }}</th>
                 <th class="col-sm-1">{{ $employee->job_title }}</th>
-                <th class="col-sm-3">{{ $employee->description }}</th>
                 <th class="col-sm-2">
                     <a href="{{ route('employees.edit', ['id' => $employee->id]) }}"><i id="edit-btn" class="fa fa-pencil-square-o"></i></a>
                     {!! Form::open(['method' => 'DELETE', 'route' => ['employees.destroy', $employee->id], 'id' => 'form-delete-'.$employee->id]) !!}

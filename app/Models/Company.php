@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Fri, 29 Sep 2017 09:49:00 +0000.
+ * Date: Thu, 05 Oct 2017 19:35:07 +0000.
  */
 
 namespace App\Models;
@@ -21,6 +21,9 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $place
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * 
+ * @property \Illuminate\Database\Eloquent\Collection $clients
+ * @property \Illuminate\Database\Eloquent\Collection $experiences
  *
  * @package App\Models
  */
@@ -34,4 +37,14 @@ class Company extends Eloquent
 		'zipcode',
 		'place'
 	];
+
+	public function clients()
+	{
+		return $this->hasMany(\App\Models\Client::class);
+	}
+
+	public function experiences()
+	{
+		return $this->hasMany(\App\Models\Experience::class);
+	}
 }

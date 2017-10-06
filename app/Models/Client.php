@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Fri, 29 Sep 2017 09:49:00 +0000.
+ * Date: Thu, 05 Oct 2017 19:35:07 +0000.
  */
 
 namespace App\Models;
@@ -17,14 +17,13 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $last_name
  * @property string $email
  * @property string $phone
- * @property string $company
- * @property int $event_id
+ * @property int $company_id
  * @property int $category_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * 
  * @property \App\Models\Category $category
- * @property \App\Models\Event $event
+ * @property \App\Models\Company $company
  * @property \Illuminate\Database\Eloquent\Collection $actions
  *
  * @package App\Models
@@ -32,7 +31,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 class Client extends Eloquent
 {
 	protected $casts = [
-		'event_id' => 'int',
+		'company_id' => 'int',
 		'category_id' => 'int'
 	];
 
@@ -41,8 +40,7 @@ class Client extends Eloquent
 		'last_name',
 		'email',
 		'phone',
-		'company',
-		'event_id',
+		'company_id',
 		'category_id'
 	];
 
@@ -51,9 +49,9 @@ class Client extends Eloquent
 		return $this->belongsTo(\App\Models\Category::class);
 	}
 
-	public function event()
+	public function company()
 	{
-		return $this->belongsTo(\App\Models\Event::class);
+		return $this->belongsTo(\App\Models\Company::class);
 	}
 
 	public function actions()

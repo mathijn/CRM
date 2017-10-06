@@ -22,6 +22,7 @@ class CreateEmployeesTable extends Migration
             $table->date('birth_date')->nullable();
             $table->enum('driver_license', ['B', 'None']);
             $table->string('job_title')->nullable();
+            $table->text('motivation')->nullable();
             $table->text('description')->nullable();
 
             $table->timestamps();

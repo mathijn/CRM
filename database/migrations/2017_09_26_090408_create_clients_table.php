@@ -20,13 +20,14 @@ class CreateClientsTable extends Migration
             $table->string('last_name')->nullable();
 			$table->string('email')->nullable();
 			$table->string('phone')->nullable();
-			$table->string('company')->nullable();
 
+			$table->unsignedInteger('company_id')->nullable();
 			$table->unsignedInteger('category_id')->nullable();
 
             $table->timestamps();
 
 			$table->foreign('category_id')->references('id')->on('categories');
+			$table->foreign('company_id')->references('id')->on('companies');
         });
     }
 

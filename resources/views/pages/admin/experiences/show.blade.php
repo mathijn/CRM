@@ -5,15 +5,15 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Clients
-                <small style="font-size:0.6em"><a href="{{route('clients.create')}}"><i class="fa fa-plus" aria-hidden="true"></i> add client</a></small>
+                Experiences
+                <small style="font-size:0.6em"><a href="{{route('clients.create')}}"><i class="fa fa-plus" aria-hidden="true"></i> add experience</a></small>
             </h1>
             <ol class="breadcrumb">
                 <li>
                     <i class="fa fa-dashboard"></i><a href="{{route('dashboard')}}"> Dashboard</a>
                 </li>
                 <li>
-                    <i class="fa fa-users"></i><a href="{{route('clients.index')}}"> Clients </a>
+                    <i class="fa fa-users"></i><a href="{{route('clients.index')}}"> Experiences </a>
                 </li>
                 <li class="active">
                     <i class="fa fa-user"></i> {{ $client->first_name }} {{ $client->last_name }}
@@ -55,15 +55,12 @@
             </br>
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>
-                        Actions for this client
-                        <small style="font-size:0.6em"><a href="{{route('actions.create')}}"><i class="fa fa-plus" aria-hidden="true"></i> add action</a></small>
-                    </h2>
+                    <h2><small>Actions for this experience</small></h2>
                 </div>
             </div>
             </br>
 
-            <table style="font-size:smallm" class="table table-hover table-custom" id="table-custom">
+            <table style="font-size: 0.9em" class="table table-hover table-custom" id="table-custom">
                 <thead>
                 <tr>
                     <th>#</th>

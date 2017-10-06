@@ -16,7 +16,7 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- /.container-fluid -->
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     @yield('content')
                 </div>
             </div>

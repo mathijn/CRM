@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Fri, 29 Sep 2017 09:49:00 +0000.
+ * Date: Thu, 05 Oct 2017 19:35:08 +0000.
  */
 
 namespace App\Models;
@@ -17,8 +17,6 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $body
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * 
- * @property \Illuminate\Database\Eloquent\Collection $clients
  *
  * @package App\Models
  */
@@ -28,9 +26,4 @@ class Event extends Eloquent
 		'subject',
 		'body'
 	];
-
-	public function clients()
-	{
-		return $this->hasMany(\App\Models\Client::class);
-	}
 }

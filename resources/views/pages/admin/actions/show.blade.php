@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <h1 class="page-header">
                 Actions
-                <small style="font-size:0.6em"><a href="{{route('actions.create')}}"><i class="fa fa-plus" aria-hidden="true"></i> add client</a></small>
+                <small style="font-size:0.6em"><a href="{{route('actions.create')}}"><i class="fa fa-plus" aria-hidden="true"></i> add action</a></small>
             </h1>
             <ol class="breadcrumb">
                 <li>

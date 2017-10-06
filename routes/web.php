@@ -24,5 +24,6 @@ Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 Route::resource('clients', 'ClientController');
 Route::resource('actions', 'ActionController');
 Route::resource('employees', 'EmployeeController');
+Route::resource('experiences', 'ExperienceController');
 
 Route::get('pdf', 'PdfController@generatePdf')->name('pdf');

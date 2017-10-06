@@ -96,7 +96,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+		return view('pages.admin.employees.show')->with('employee', $employee);
     }
 
     /**

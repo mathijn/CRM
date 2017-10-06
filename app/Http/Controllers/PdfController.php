@@ -19,7 +19,9 @@ class PdfController extends Controller
 	 */
 	public function generatePdf()
 	{
-		$employee = Employee::find(1);
+		$id = $_GET['id'];
+
+		$employee = Employee::where(['id'=>$id])->first();
 
 		$data = [
 			'employee'	=> $employee
@@ -32,9 +34,12 @@ class PdfController extends Controller
 
 		$pdf->setOptions([
 			'defaultFont' => 'Open Sans',
-			'isPhpEnabled' => true
+			'isPhpEnabled' => true,
 		]);
 
+//		return view('pdf.cv')->with('employee', $employee);
+
+		$pdf->use_kwt = true;
 		$pdf->loadView('pdf.cv', $data);
 
 		return $pdf->stream();

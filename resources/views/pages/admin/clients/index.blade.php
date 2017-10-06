@@ -37,7 +37,7 @@
                 <th scope="row" class="col-sm-1"><a href="{{ route('clients.show', ['id' => $client->id]) }}">{{ isset($client->id) ? $client->id : '' }}</a></th>
                 <th class="col-sm-2"><a href="{{ route('clients.show', ['id' => $client->id]) }}">{{ isset($client->first_name) ? $client->first_name : '' }}</a></th>
                 <th class="col-sm-2"><a href="{{ route('clients.show', ['id' => $client->id]) }}a">{{ isset($client->last_name) ? $client->last_name : '' }}</a></th>
-                <th class="col-sm-2">{{ isset($client->company) ? $client->company : '' }}</th>
+                <th class="col-sm-2">{{ isset($client->company) ? $client->company->name : '' }}</th>
                 <th class="col-sm-1">{{ isset($client->email) ? $client->email : '' }}</th>
                 <th class="col-sm-1">{{ isset($client->phone) ? $client->phone : '' }}</th>
                 <th class="col-sm-1">

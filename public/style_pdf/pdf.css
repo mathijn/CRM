@@ -5,10 +5,11 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 0.8em;
+    margin: 0 35px;
 }
 
-.page{
-    padding: 70px 50px;
+.first_page {
+    page-break-after:always;
 }
 
 header {
@@ -16,10 +17,9 @@ header {
     top: -30px;
     width:100%;
     text-align: center;
-}
-
-img {
-    width:225px;
+    height: 50px;
+    /*background-color: #5e5e5e;*/
+    margin: 80px 0;
 }
 
 footer {
@@ -27,13 +27,24 @@ footer {
     bottom: -30px;
     left: 0px;
     right: 0px;
+    height: 50px;
+    width: 100%;
+    /*background-color: #5e5e5e;;*/
 }
 
+.page{
+    /*background-color: #1b6d85;*/
+}
+.page_element {
+}
+
+img {
+    width:225px;
+}
 .pagenum:before {
     content: counter(page);
 }
 
-p { page-break-after: always; }
 
 p:last-child { page-break-after: never; }
 
@@ -46,29 +57,30 @@ p:last-child { page-break-after: never; }
 
 .first_page {
     position: relative;
-    top:30%;
+    top:40%;
 }
 
 .page h1 {
     font-size: 2.5em;
 }
 
-.page p {
+.first_page_employee p {
     padding-top: 80px;
-}
-
-.page, .small p {
-    font-size: 1em;
 }
 
 .page .small {
     font-size: 0.8em;
 }
 
-
 h2.title{
-    border-bottom: 1px solid;
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid #000;
     text-transform: uppercase;
+}
+
+#table {
+    page-break-inside: avoid;
+    border-bottom: 1px solid #000;
 }
 
 #table-column-name table, th {
@@ -77,6 +89,11 @@ h2.title{
     font-weight: normal;
 }
 
-table, td {
-    width: 100%;
+table td {
+    width: 500px;
 }
+
+.last_row td, .last_row th {
+    padding-bottom: 5px;
+}
+

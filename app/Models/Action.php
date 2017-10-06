@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Fri, 29 Sep 2017 09:49:00 +0000.
+ * Date: Thu, 05 Oct 2017 19:35:07 +0000.
  */
 
 namespace App\Models;
@@ -16,6 +16,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $subject
  * @property string $body
  * @property int $client_id
+ * @property bool $finished
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * 
@@ -26,13 +27,15 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 class Action extends Eloquent
 {
 	protected $casts = [
-		'client_id' => 'int'
+		'client_id' => 'int',
+		'finished' => 'bool'
 	];
 
 	protected $fillable = [
 		'subject',
 		'body',
-		'client_id'
+		'client_id',
+		'finished'
 	];
 
 	public function client()
